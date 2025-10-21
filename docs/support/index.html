@@ -1,0 +1,279 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Support — Intersect Studio</title>
+  <meta name="description" content="Get help with Intersect Studio. Find answers to common questions or get in touch." />
+  <link rel="icon" href="../images/icon_light_32.png" sizes="32x32" media="(prefers-color-scheme: light)" />
+  <link rel="icon" href="../images/icon_dark_32.png" sizes="32x32" media="(prefers-color-scheme: dark)" />
+  <link rel="icon" href="../images/icon_light_512.png" sizes="512x512" media="(prefers-color-scheme: light)" />
+  <link rel="icon" href="../images/icon_dark_512.png" sizes="512x512" media="(prefers-color-scheme: dark)" />
+  <link rel="apple-touch-icon" href="../images/icon_light_512.png" />
+  <meta name="theme-color" content="#0b0d12" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../styles/site.css" />
+  <style>
+    main.support-page {
+      padding: 40px 0 80px;
+    }
+
+    .faq-section {
+      margin-bottom: 56px;
+    }
+
+    .section-title {
+      font-size: 24px;
+      margin: 0 0 24px;
+    }
+
+    .faq-list {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .faq-item {
+      background: var(--panel);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      overflow: hidden;
+      transition: all 0.2s;
+      box-shadow: 0 10px 40px rgba(0, 0, 0, 0.15);
+    }
+
+    .faq-question {
+      width: 100%;
+      padding: 18px 20px;
+      background: none;
+      border: none;
+      color: var(--text);
+      font-family: inherit;
+      font-size: 16px;
+      font-weight: 600;
+      text-align: left;
+      cursor: pointer;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 16px;
+    }
+
+    .faq-question:hover {
+      background: color-mix(in oklab, var(--panel), var(--text) 3%);
+    }
+
+    .faq-icon {
+      flex-shrink: 0;
+      width: 20px;
+      height: 20px;
+      border-radius: 50%;
+      background: color-mix(in oklab, var(--primary), transparent 85%);
+      color: var(--primary);
+      display: grid;
+      place-items: center;
+      font-size: 14px;
+      font-weight: 700;
+      transition: transform 0.2s;
+    }
+
+    .faq-item.open .faq-icon {
+      transform: rotate(45deg);
+    }
+
+    .faq-answer {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.3s ease-out;
+    }
+
+    .faq-item.open .faq-answer {
+      max-height: 800px;
+    }
+
+    .faq-answer-content {
+      padding: 0 20px 20px 20px;
+      color: var(--muted);
+      line-height: 1.7;
+    }
+
+    .faq-answer-content p {
+      margin: 0 0 12px;
+    }
+
+    .faq-answer-content p:last-child {
+      margin: 0;
+    }
+
+    .faq-answer-content strong {
+      color: var(--text);
+      font-weight: 600;
+    }
+
+    .tip {
+      margin-top: 12px;
+      padding: 12px;
+      background: color-mix(in oklab, var(--primary), transparent 92%);
+      border-left: 3px solid var(--primary);
+      border-radius: 6px;
+      color: var(--muted);
+    }
+
+    .screenshot-placeholder {
+      margin-top: 12px;
+      padding: 12px;
+      border-radius: 10px;
+      border: 1px dashed var(--border);
+      color: var(--muted);
+      font-size: 14px;
+      text-align: center;
+    }
+
+    .contact-section {
+      background: var(--panel);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 32px;
+      text-align: center;
+      box-shadow: 0 10px 40px rgba(0, 0, 0, 0.15);
+    }
+
+    .contact-section h2 {
+      margin: 0 0 8px;
+    }
+
+    .contact-section p {
+      color: var(--muted);
+      margin: 0 0 20px;
+    }
+
+    .contact-email {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      padding: 14px 20px;
+      background: color-mix(in oklab, var(--bg), transparent 50%);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+      font-size: 15px;
+      margin-bottom: 20px;
+    }
+
+    .contact-buttons {
+      display: flex;
+      gap: 12px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    .help-note {
+      margin-top: 24px;
+      padding: 16px;
+      background: color-mix(in oklab, var(--primary), transparent 93%);
+      border-radius: 10px;
+      font-size: 14px;
+      color: var(--muted);
+    }
+
+    @media (max-width: 640px) {
+      .contact-buttons .btn {
+        width: 100%;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header data-site-header></header>
+
+  <main class="container support-page">
+    <section class="page-header">
+      <h1>How can we help?</h1>
+      <p>Find answers to common questions or get in touch</p>
+    </section>
+
+    <section class="faq-section" aria-labelledby="support-faq">
+      <h2 id="support-faq" class="section-title">Frequently asked questions</h2>
+      <div class="faq-list" data-faq-list></div>
+    </section>
+
+    <section class="contact-section" aria-labelledby="support-contact">
+      <h2 id="support-contact">Still need help?</h2>
+      <p>Send us an email and we'll get back to you as soon as possible.</p>
+
+      <div class="contact-email">
+        <span id="email">intersect.studio.app@gmail.com</span>
+      </div>
+
+      <div class="contact-buttons">
+        <button class="btn" id="copy-btn" type="button">Copy email</button>
+        <a class="btn primary" href="mailto:intersect.studio.app@gmail.com?subject=Help%20with%20Intersect%20Studio">Send email</a>
+      </div>
+
+      <div class="help-note">
+        <strong>Tip:</strong> When reporting issues, include your iOS version, device model, and what you were trying to do. Screenshots help a lot!
+      </div>
+    </section>
+  </main>
+
+  <footer data-site-footer></footer>
+  <script type="module">
+    import { renderHeader, renderFooter, attachCopyButton } from '../scripts/layout.js';
+    import { faqItems } from '../scripts/faq-data.js';
+
+    renderHeader('support');
+    renderFooter('support');
+
+    const faqList = document.querySelector('[data-faq-list]');
+    if (faqList) {
+      faqList.innerHTML = faqItems
+        .map(({ question, answer, tip, screenshot }) => {
+          const answerHtml = (answer ?? [])
+            .map((part) => `<p>${part}</p>`)
+            .join('');
+          const tipHtml = tip ? `<div class="tip">${tip}</div>` : '';
+          const screenshotHtml = screenshot
+            ? `<div class="screenshot-placeholder">${screenshot}</div>`
+            : '';
+          return `
+          <div class="faq-item">
+            <button class="faq-question" aria-expanded="false">
+              <span>${question}</span>
+              <span class="faq-icon">+</span>
+            </button>
+            <div class="faq-answer">
+              <div class="faq-answer-content">
+                ${answerHtml}
+                ${tipHtml}
+                ${screenshotHtml}
+              </div>
+            </div>
+          </div>`;
+        })
+        .join('');
+
+      const faqElements = faqList.querySelectorAll('.faq-item');
+      faqElements.forEach((item) => {
+        const trigger = item.querySelector('.faq-question');
+        if (!trigger) return;
+
+        trigger.addEventListener('click', () => {
+          const wasOpen = item.classList.contains('open');
+          faqElements.forEach((element) => {
+            element.classList.remove('open');
+            element.querySelector('.faq-question')?.setAttribute('aria-expanded', 'false');
+          });
+          if (!wasOpen) {
+            item.classList.add('open');
+            trigger.setAttribute('aria-expanded', 'true');
+          }
+        });
+      });
+    }
+
+    attachCopyButton('copy-btn', 'email');
+  </script>
+</body>
+</html>

@@ -1,0 +1,186 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Contact — Intersect Studio</title>
+  <meta name="description" content="Get in touch with Intersect Studio for support, feedback, or questions." />
+  <link rel="icon" href="../images/icon_light_32.png" sizes="32x32" media="(prefers-color-scheme: light)" />
+  <link rel="icon" href="../images/icon_dark_32.png" sizes="32x32" media="(prefers-color-scheme: dark)" />
+  <link rel="icon" href="../images/icon_light_512.png" sizes="512x512" media="(prefers-color-scheme: light)" />
+  <link rel="icon" href="../images/icon_dark_512.png" sizes="512x512" media="(prefers-color-scheme: dark)" />
+  <link rel="apple-touch-icon" href="../images/icon_light_512.png" />
+  <meta name="theme-color" content="#0b0d12" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../styles/site.css" />
+  <style>
+    main.contact-page {
+      padding: 60px 0 80px;
+    }
+
+    .contact-card {
+      text-align: center;
+      margin-bottom: 32px;
+    }
+
+    .contact-card p {
+      color: var(--muted);
+      margin: 0 0 16px;
+    }
+
+    .email-display {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      padding: 14px 20px;
+      background: color-mix(in oklab, var(--bg), transparent 50%);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+      font-size: 15px;
+      margin-bottom: 24px;
+    }
+
+    .button-group {
+      display: flex;
+      gap: 12px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    .help-link {
+      margin-bottom: 32px;
+      padding: 16px;
+      background: color-mix(in oklab, var(--primary), transparent 93%);
+      border: 1px solid color-mix(in oklab, var(--primary), transparent 70%);
+      border-radius: 12px;
+      text-align: center;
+      color: var(--muted);
+    }
+
+    .help-link a {
+      color: var(--primary);
+      font-weight: 600;
+      text-decoration: underline;
+      text-decoration-thickness: 1px;
+    }
+
+    .help-link a:hover {
+      color: var(--primary-600);
+    }
+
+    .info-section {
+      margin-bottom: 24px;
+    }
+
+    .info-section h2 {
+      margin: 0 0 12px;
+      font-size: 20px;
+    }
+
+    .info-section p {
+      color: var(--muted);
+      margin: 0 0 12px;
+      line-height: 1.7;
+    }
+
+    .info-section p:last-child {
+      margin: 0;
+    }
+
+    .info-list {
+      list-style: none;
+      padding: 0;
+      margin: 16px 0 0 0;
+    }
+
+    .info-list li {
+      padding: 10px 0;
+      color: var(--muted);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .info-list li:last-child {
+      border-bottom: none;
+    }
+
+    .info-list li strong {
+      color: var(--text);
+      font-weight: 600;
+    }
+
+    @media (max-width: 640px) {
+      .button-group .btn {
+        width: 100%;
+      }
+      .contact-card,
+      .info-section {
+        padding: 28px 20px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header data-site-header></header>
+
+  <main class="container contact-page">
+    <section class="page-header">
+      <h1>Get in touch</h1>
+      <p>We'd love to hear from you</p>
+    </section>
+
+    <section class="panel contact-card">
+      <p>
+        Reach out for support, bug reports, feedback, or any questions about Intersect Studio.
+      </p>
+      <div class="email-display" id="contact-email">
+        <span id="email">intersect.studio.app@gmail.com</span>
+      </div>
+      <div class="button-group">
+        <button class="btn" id="copy-btn" type="button">Copy email</button>
+        <a class="btn primary" href="mailto:intersect.studio.app@gmail.com?subject=Hello%20from%20Intersect%20Studio">Send email</a>
+      </div>
+    </section>
+
+    <div class="help-link">
+      Need quick answers? Check out our <a href="../support/">Support page</a> for FAQs and troubleshooting tips.
+    </div>
+
+    <section class="panel info-section">
+      <h2>What to include</h2>
+      <p>When reaching out, it helps to include:</p>
+      <ul class="info-list">
+        <li><strong>Your device:</strong> iPhone or iPad model</li>
+        <li><strong>iOS version:</strong> What version you're running</li>
+        <li><strong>App version:</strong> Found in Settings or the App Store</li>
+        <li><strong>Screenshots:</strong> If something looks wrong, show us</li>
+        <li><strong>Steps to reproduce:</strong> Help us understand what happened</li>
+      </ul>
+    </section>
+
+    <section class="panel info-section">
+      <h2>Response time</h2>
+      <p>We typically respond within 1-2 business days. Complex issues may take longer to investigate.</p>
+      <p>For urgent matters like payment issues or data requests, please mention it in the subject line.</p>
+    </section>
+
+    <section class="panel info-section">
+      <h2>Other ways to get help</h2>
+      <p><strong>In-app feedback:</strong> You can send feedback directly from Settings in the app. This automatically includes diagnostic information that helps us troubleshoot.</p>
+      <p><strong>App Store reviews:</strong> While we appreciate reviews, we can't respond to issues there. Please email us directly so we can help.</p>
+      <p><strong>Refunds:</strong> Managed through Apple. Go to Settings → Your Name → Subscriptions, or use the refund flow in the app.</p>
+    </section>
+  </main>
+
+  <footer data-site-footer></footer>
+  <script type="module">
+    import { renderHeader, renderFooter, attachCopyButton } from '../scripts/layout.js';
+
+    renderHeader('contact');
+    renderFooter('contact');
+    attachCopyButton('copy-btn', 'email');
+  </script>
+</body>
+</html>
