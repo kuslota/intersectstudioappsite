@@ -1,10 +1,17 @@
 export const faqItems = [
+  /**
+   * Optional media: { type: 'image' | 'video', source: 'path/to/file', caption?, alt?, poster?, width?, height? }
+   * Provide paths relative to docs/support/ (e.g. 'images/faq-panel.png' or 'videos/demo.mp4').
+   * Inline icons: use [INSERT: path/to/icon.svg | optional alt text] within answer strings.
+   */
   {
     question: 'How do I move a form?',
     answer: [
-      'There are two ways to move forms:',
-      '<strong>Quick drag:</strong> Tap and hold on a form, then drag it around. It will move along the plane you\'re viewing.',
-      '<strong>Precise control:</strong> Select a form, then use the <strong>Position mode</strong> in the transform panel at the bottom. You can scrub each axis (X, Y, Z) individually for exact placement.',
+      'You can move forms only when the form is selected (highlighted in orange).',
+      // 'There are two ways to move forms:',
+      '<strong>Quick drag:</strong> Tap on a form and drag it around. It will move freely along the plane you\'re viewing. This works only when <strong>Position mode</strong>[INSERT: images/faq/move.3d.svg] is active (default).',
+      '<strong>On-screen handles:</strong> Drag on-screen handles to move, rotate, or scale quickly. Switch modes ([INSERT: images/faq/move.3d.svg][INSERT: images/faq/rotate.3d.svg][INSERT: images/faq/scale.3d.svg]) to change the handle.',
+      '<strong>Precise control:</strong> Select a form, then tap on the <strong>Expand controls</strong>[INSERT: images/faq/chevron.up.circle.svg] button in the transform panel at the bottom. You can scrub each axis (X, Y, Z) individually for exact placement.',
     ],
     tip: 'Enable snapping in the transform panel menu to move in precise increments.',
     screenshot: 'Screenshot: Transform panel with Position mode selected',
@@ -12,11 +19,11 @@ export const faqItems = [
   {
     question: "What's the difference between World and Local space?",
     answer: [
-      '<strong>World space</strong> uses the fixed X, Y, Z axes of your scene (shown by the axis helper). Moving or rotating in world space is always relative to these fixed directions.',
+      '<strong>World space</strong> uses the fixed X, Y, Z axes of your scene. These axes never change and stay constant relatice to the scene. Moving or rotating in world space is always relative to these fixed directions.',
       '<strong>Local space</strong> uses the form\'s own orientation. If you rotate a cube, its local axes rotate with it. This makes it easier to move or rotate forms relative to their current orientation.',
       'You can switch between World and Local in the transform panel when you have a form selected.',
     ],
-    screenshot: 'Screenshot: World vs Local space toggle',
+    screenshot: 'images/faq/local-vs-world.png',
   },
   {
     question: 'How do I see intersections between forms?',
@@ -25,7 +32,7 @@ export const faqItems = [
       'You can control how intersections look in <strong>Settings</strong>:',
       '• Toggle <strong>Show intersections</strong> on/off<br>• Enable <strong>See-through intersections</strong> to show lines behind forms<br>• Adjust <strong>Intersection thickness</strong> (Pro feature)',
     ],
-    screenshot: 'Screenshot: Intersection settings panel',
+    screenshot: 'Screenshot: Intersection spanelettings ',
   },
   {
     question: 'How do I control lighting?',
@@ -43,7 +50,11 @@ export const faqItems = [
       'Use the slider to adjust from orthographic (flat, technical view) through natural perspective to wide-angle and telephoto views.',
     ],
     tip: 'The camera automatically adjusts distance to keep your forms in view as you change perspective.',
-    screenshot: 'Screenshot: Perspective control panel',
+    media: {
+      type: 'video',
+      source: 'videos/perspective.mp4',
+      caption: 'Perspective controls in action inside Intersect Studio.',
+    },
   },
   {
     question: 'How do I save my scene?',

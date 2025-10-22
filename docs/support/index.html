@@ -20,6 +20,18 @@
       padding: 40px 0 80px;
     }
 
+    body.support-bare main.support-page {
+      padding-top: 28px;
+    }
+
+    body.support-bare {
+      background: var(--bg);
+    }
+
+    body.support-bare .container {
+      max-width: 880px;
+    }
+
     .faq-section {
       margin-bottom: 56px;
     }
@@ -131,6 +143,60 @@
       text-align: center;
     }
 
+    .faq-inline-icon {
+      display: inline-block;
+      width: 1.1em;
+      height: 1.1em;
+      margin: 0 0.3em;
+      vertical-align: text-bottom;
+      color: var(--primary);
+      background-color: currentColor;
+      mask-image: var(--faq-icon);
+      mask-repeat: no-repeat;
+      mask-size: contain;
+      mask-position: center;
+      -webkit-mask-image: var(--faq-icon);
+      -webkit-mask-repeat: no-repeat;
+      -webkit-mask-size: contain;
+      -webkit-mask-position: center;
+    }
+
+    .faq-media,
+    .faq-screenshot {
+      margin-top: 16px;
+      border-radius: 12px;
+      overflow: hidden;
+      border: 1px solid var(--border);
+      background: color-mix(in oklab, var(--panel), var(--text) 4%);
+    }
+
+    .faq-media img,
+    .faq-media video,
+    .faq-screenshot img {
+      display: block;
+      width: 100%;
+      height: auto;
+    }
+
+    .faq-media--video {
+      aspect-ratio: 16 / 10;
+    }
+
+    .faq-media--video video {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      background: color-mix(in oklab, var(--panel), transparent 40%);
+    }
+
+    .faq-media figcaption,
+    .faq-screenshot figcaption {
+      padding: 12px;
+      font-size: 13px;
+      color: var(--muted);
+      background: color-mix(in oklab, var(--panel), transparent 60%);
+    }
+
     .contact-section {
       background: var(--panel);
       border: 1px solid var(--border);
@@ -223,20 +289,137 @@
     import { renderHeader, renderFooter, attachCopyButton } from '../scripts/layout.js';
     import { faqItems } from '../scripts/faq-data.js';
 
-    renderHeader('support');
-    renderFooter('support');
+    const params = new URLSearchParams(window.location.search);
+    // ?bare (or ?mode=bare / ?view=bare) removes site chrome for in-app FAQ usage.
+    const isBareMode =
+      params.has('bare') ||
+      params.get('mode')?.toLowerCase() === 'bare' ||
+      params.get('view')?.toLowerCase() === 'bare';
+
+    const headerEl = document.querySelector('[data-site-header]');
+    const footerEl = document.querySelector('[data-site-footer]');
+
+    if (isBareMode) {
+      headerEl?.remove();
+      footerEl?.remove();
+      document.body.classList.add('support-bare');
+    } else {
+      renderHeader('support');
+      renderFooter('support');
+    }
 
     const faqList = document.querySelector('[data-faq-list]');
     if (faqList) {
+      const ensureRelativeSrc = (src) => {
+        const trimmed = typeof src === 'string' ? src.trim() : '';
+        if (!trimmed) return '';
+        if (/^(?:https?:)?\/\//.test(trimmed) || trimmed.startsWith('/') || trimmed.startsWith('../')) {
+          return trimmed;
+        }
+        return `../${trimmed.replace(/^\.\//, '')}`;
+      };
+
+      const escapeAttribute = (value) =>
+        String(value)
+          .replace(/&/g, '&amp;')
+          .replace(/"/g, '&quot;')
+          .replace(/'/g, '&#39;')
+          .replace(/</g, '&lt;')
+          .replace(/>/g, '&gt;');
+
+      const enhanceText = (text) => {
+        if (typeof text !== 'string') return text ?? '';
+        return text.replace(
+          /\[INSERT:\s*([^|\]]+?)(?:\s*\|\s*([^\]]+))?\s*\]/gi,
+          (_, rawSrc, rawAlt) => {
+            const normalizedSrc = ensureRelativeSrc(rawSrc);
+            if (!normalizedSrc) return '';
+            const fileName = rawSrc.split('/').pop() ?? '';
+            const baseName = fileName.replace(/\.[^.]+$/, '');
+            const defaultAlt = baseName.replace(/[-_.\s]+/g, ' ').trim();
+            const altText =
+              (rawAlt && rawAlt.trim()) ||
+              (defaultAlt ? `${defaultAlt} icon` : 'Inline icon');
+            const safeAlt = escapeAttribute(altText);
+            const escapedForCss = normalizedSrc.replace(/'/g, "\\'");
+            return `<span class="faq-inline-icon" role="img" aria-label="${safeAlt}" title="${safeAlt}" style="--faq-icon:url('${escapedForCss}');"></span>`;
+          }
+        );
+      };
+
       faqList.innerHTML = faqItems
-        .map(({ question, answer, tip, screenshot }) => {
+        .map(({ question, answer, tip, media, screenshot }) => {
           const answerHtml = (answer ?? [])
-            .map((part) => `<p>${part}</p>`)
+            .map((part) => `<p>${enhanceText(part)}</p>`)
             .join('');
-          const tipHtml = tip ? `<div class="tip">${tip}</div>` : '';
-          const screenshotHtml = screenshot
-            ? `<div class="screenshot-placeholder">${screenshot}</div>`
-            : '';
+          const tipHtml = tip ? `<div class="tip">${enhanceText(tip)}</div>` : '';
+          const mediaHtml = (() => {
+            const renderImage = (src, { alt, caption, width, height } = {}) => {
+              const normalizedSrc = (() => {
+                if (!src) return '';
+                return ensureRelativeSrc(src);
+              })();
+              if (!normalizedSrc) return '';
+              const altText = alt ?? `${question} screenshot`;
+              const captionHtml = caption ? `<figcaption>${caption}</figcaption>` : '';
+              const widthAttr = width ? ` width="${width}"` : '';
+              const heightAttr = height ? ` height="${height}"` : '';
+              return `<figure class="faq-media faq-media--image">
+                <img src="${normalizedSrc}" alt="${altText}" loading="lazy" decoding="async"${widthAttr}${heightAttr} />
+                ${captionHtml}
+              </figure>`;
+            };
+
+            const renderVideo = (src, { caption, poster } = {}) => {
+              const normalizedSrc = (() => {
+                if (!src) return '';
+                return ensureRelativeSrc(src);
+              })();
+              if (!normalizedSrc) return '';
+              const captionHtml = caption ? `<figcaption>${caption}</figcaption>` : '';
+              const posterAttr = poster ? ` poster="${ensureRelativeSrc(poster)}"` : '';
+              return `<figure class="faq-media faq-media--video">
+                <video class="faq-media__player" data-faq-video data-faq-src="${normalizedSrc}" muted loop playsinline preload="none"${posterAttr}></video>
+                ${captionHtml}
+              </figure>`;
+            };
+
+            const resolvedMedia = (() => {
+              if (media && typeof media === 'object') {
+                if (!media.type && media.source) {
+                  const looksLikeVideo = /\.(?:mp4|webm|ogg)$/i.test(media.source);
+                  return { ...media, type: looksLikeVideo ? 'video' : 'image' };
+                }
+                return media;
+              }
+              if (!screenshot) return null;
+              if (typeof screenshot === 'string') {
+                const looksLikePath =
+                  /\.(?:png|jpe?g|webp|gif|svg|mp4|webm|ogg)$/i.test(screenshot) || screenshot.includes('/');
+                if (looksLikePath) {
+                  const looksLikeVideo = /\.(?:mp4|webm|ogg)$/i.test(screenshot);
+                  return { type: looksLikeVideo ? 'video' : 'image', source: screenshot };
+                }
+                return { type: 'placeholder', content: screenshot };
+              }
+              if (typeof screenshot === 'object' && screenshot.src) {
+                return { type: 'image', source: screenshot.src, ...screenshot };
+              }
+              return null;
+            })();
+
+            if (!resolvedMedia) return '';
+            if (resolvedMedia.type === 'image') {
+              return renderImage(resolvedMedia.source, resolvedMedia);
+            }
+            if (resolvedMedia.type === 'video') {
+              return renderVideo(resolvedMedia.source, resolvedMedia);
+            }
+            if (resolvedMedia.type === 'placeholder' && resolvedMedia.content) {
+              return `<div class="screenshot-placeholder">${resolvedMedia.content}</div>`;
+            }
+            return '';
+          })();
           return `
           <div class="faq-item">
             <button class="faq-question" aria-expanded="false">
@@ -247,7 +430,7 @@
               <div class="faq-answer-content">
                 ${answerHtml}
                 ${tipHtml}
-                ${screenshotHtml}
+                ${mediaHtml}
               </div>
             </div>
           </div>`;
@@ -264,10 +447,41 @@
           faqElements.forEach((element) => {
             element.classList.remove('open');
             element.querySelector('.faq-question')?.setAttribute('aria-expanded', 'false');
+            element.querySelectorAll('[data-faq-video]').forEach((video) => {
+              video.pause();
+              try {
+                video.currentTime = 0;
+              } catch {
+                // Ignore if resetting currentTime fails before metadata loads.
+              }
+            });
           });
           if (!wasOpen) {
             item.classList.add('open');
             trigger.setAttribute('aria-expanded', 'true');
+            item.querySelectorAll('[data-faq-video]').forEach((video) => {
+              if (video.dataset.faqSrc && !video.dataset.faqSourceAttached) {
+                video.src = video.dataset.faqSrc;
+                video.dataset.faqSourceAttached = 'true';
+              }
+
+              const playVideo = () => {
+                const playPromise = video.play();
+                if (playPromise?.catch) {
+                  playPromise.catch(() => {});
+                }
+              };
+
+              if (video.readyState >= 2) {
+                playVideo();
+              } else {
+                video.addEventListener('loadeddata', playVideo, { once: true });
+                if (!video.dataset.faqLoaded) {
+                  video.dataset.faqLoaded = 'true';
+                  video.load();
+                }
+              }
+            });
           }
         });
       });
