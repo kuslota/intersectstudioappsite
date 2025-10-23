@@ -16,71 +16,200 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="../styles/site.css" />
   <style>
-    .legal-page{padding:40px 0 60px;}
-    h1{margin:8px 0 10px}
-    h2{margin:26px 0 8px; font-size:18px}
-    p{margin:0 0 12px; color:var(--text)}
-    main a{color:var(--primary); text-decoration:underline; text-decoration-thickness:1px}
-    main a:hover{color:var(--primary-600)}
+    main.terms-page {
+      padding: 40px 0 80px;
+    }
+
+    .terms-page .panel {
+      padding: 32px;
+      margin-bottom: 20px;
+    }
+
+    .terms-page h2 {
+      font-size: 20px;
+      margin: 0 0 16px;
+    }
+
+    .terms-page h3 {
+      font-size: 17px;
+      margin: 24px 0 12px;
+      color: var(--text);
+    }
+
+    .terms-page h3:first-of-type {
+      margin-top: 0;
+    }
+
+    .terms-page p {
+      margin: 0 0 16px;
+      color: var(--muted);
+      line-height: 1.7;
+    }
+
+    .terms-page ul,
+    .terms-page ol {
+      margin: 12px 0;
+      padding-left: 20px;
+      color: var(--muted);
+    }
+
+    .terms-page li {
+      margin: 8px 0;
+      line-height: 1.7;
+    }
+
+    .terms-page strong {
+      color: var(--text);
+      font-weight: 600;
+    }
+
+    .terms-page a {
+      color: var(--primary);
+      text-decoration: underline;
+      text-decoration-thickness: 1px;
+    }
+
+    .terms-page a:hover {
+      color: var(--primary-600);
+    }
+
+    .terms-highlight {
+      background: linear-gradient(135deg, rgba(110,168,254,0.15), rgba(95,225,188,0.1));
+    }
+
+    .terms-highlight ul {
+      margin: 0;
+    }
+
+    .terms-note {
+      background: color-mix(in oklab, var(--primary), transparent 93%);
+      border-left: 3px solid var(--primary);
+      border-radius: 6px;
+      padding: 16px;
+      margin: 16px 0;
+      font-size: 15px;
+      color: var(--muted);
+    }
+
+    @media (max-width: 600px) {
+      .terms-page .panel {
+        padding: 24px 20px;
+      }
+    }
   </style>
 </head>
 <body>
   <header data-site-header></header>
 
-  <main class="container legal-page">
-    <h1>Terms &amp; Conditions</h1>
-    <p class="muted">Effective date: October 20, 2025</p>
-
-    <div class="panel">
-      <p>These Terms and Conditions (the "Terms") govern your use of the Intersect Studio iOS/iPadOS application (the "App"). By downloading, installing, or using the App, you agree to be bound by these Terms.</p>
-      <p>In these Terms, "Developer" means <strong>Bohdan Yatsyniuk</strong>.</p>
-
-      <h2>1. License</h2>
-      <p>We grant you a limited, non‑exclusive, non‑transferable, revocable license to use the App for personal (or internal business) purposes on devices you own or control, in accordance with these Terms and Apple’s App Store Terms.</p>
-
-      <h2>2. In‑App Purchases & Subscriptions</h2>
-      <ul>
-        <li><strong>Products.</strong> The App offers auto‑renewing subscriptions (monthly and yearly) and a lifetime non‑consumable purchase.</li>
-        <li><strong>Free trials.</strong> Subscriptions may include a free trial (currently two weeks where available). One trial per Apple ID per subscription group, subject to Apple’s rules.</li>
-        <li><strong>Billing & renewal.</strong> Payment is charged to your Apple ID at confirmation of purchase. Subscriptions renew automatically unless canceled at least 24 hours before the current period ends. Manage or cancel in iOS Settings › Apple ID › Subscriptions.</li>
-        <li><strong>Entitlements & restore.</strong> Pro features are available while an active subscription or lifetime purchase is present. You can restore purchases within the App.</li>
-        <li><strong>Refunds.</strong> Refunds are handled by Apple. The App provides a link/flow to request a refund for the latest Pro transaction (StoreKit 2).</li>
-        <li><strong>Price changes.</strong> We may change prices for future purchases or renewals. Apple may notify you of changes; continued use after the change indicates consent to the new price.</li>
-      </ul>
-
-      <h2>3. Acceptable Use</h2>
-      <ul>
-        <li>Do not misuse the App, interfere with its normal operation, attempt to bypass purchase checks, or reverse engineer components except as permitted by law.</li>
-        <li>You are responsible for your device, backups, and compliance with applicable laws.</li>
-      </ul>
-
-      <h2>4. Intellectual Property</h2>
-      <p>The App and all related materials are owned by <strong>the Developer</strong> and its licensors and are protected by intellectual property laws. All rights not expressly granted are reserved. Third‑party components are used under their respective licenses.</p>
-
-      <h2>5. Privacy</h2>
-      <p>Your use of the App is also subject to our <a href="../privacy/">Privacy Policy</a>, which explains what data we process and why.</p>
-
-      <h2>6. Third‑Party Services</h2>
-      <p>The App uses Apple’s StoreKit for purchases and third‑party analytics and crash‑reporting services for product improvement. Your use of those services is subject to their terms and privacy policies.</p>
-
-      <h2>7. Disclaimers</h2>
-      <p>The App is provided on an "AS IS" and "AS AVAILABLE" basis. To the maximum extent permitted by law, we disclaim all warranties (express or implied), including fitness for a particular purpose and non‑infringement. We do not warrant that the App will be uninterrupted or error‑free.</p>
-
-      <h2>8. Limitation of Liability</h2>
-      <p>To the maximum extent permitted by law, <strong>the Developer</strong> will not be liable for any indirect, consequential, special, incidental, or punitive damages, or any loss of data, arising out of or related to your use of the App. Nothing in these Terms excludes or limits liability for death or personal injury caused by negligence, fraud or fraudulent misrepresentation, or any other liability that cannot be excluded or limited under applicable law. Our total aggregate liability for all claims relating to the App shall not exceed the greater of (a) the amount you paid for the App and in‑app purchases in the preceding twelve (12) months, or (b) EUR 50. If you are a consumer in the EEA/UK, these Terms do not reduce your mandatory consumer rights.</p>
-
-      <h2>9. Termination</h2>
-      <p>We may suspend or terminate access to the App if you materially breach these Terms or if required by law. You may stop using the App at any time. Upon termination, license rights end immediately.</p>
-
-      <h2>10. Governing Law & Venue</h2>
-      <p>These Terms are governed by the laws of <strong>Poland</strong>, without regard to conflict‑of‑laws rules. Courts located in <strong>Warsaw, Poland</strong> shall have exclusive jurisdiction, unless otherwise required by applicable consumer law. This is without prejudice to mandatory consumer protection laws of your country of residence.</p>
-
-      <h2>11. Changes to these Terms</h2>
-      <p>We may update these Terms from time to time. We will post the updated version here and update the effective date above. If changes are material, we may provide an in‑app notice.</p>
-
-      <h2>12. Contact</h2>
-      <p>Questions about these Terms: <a href="mailto:intersect.studio.app@gmail.com">intersect.studio.app@gmail.com</a> • <a href="../contact/">Contact</a></p>
+  <main class="container legal-page terms-page">
+    <div class="page-header">
+      <h1>Terms &amp; Conditions</h1>
+      <p class="muted">Last updated: October 20, 2025</p>
     </div>
+
+    <section class="panel terms-highlight">
+      <h2>The basics</h2>
+      <ul>
+        <li><strong>Use it how you like.</strong> Personal or business—Intersect Studio works on your devices.</li>
+        <li><strong>Subscriptions and lifetime purchase.</strong> Monthly, yearly, or one-time. Two-week free trial where available.</li>
+        <li><strong>Apple handles billing.</strong> Manage subscriptions in iOS Settings. Refunds go through Apple.</li>
+        <li><strong>Be reasonable.</strong> Don't hack the app or try to break things.</li>
+      </ul>
+    </section>
+
+    <section class="panel">
+      <h2>Introduction</h2>
+      <p>These are the terms for using <strong>Intersect Studio</strong> (the "App"), made by <strong>Bohdan Yatsyniuk</strong> (the "Developer", "we", "us"). By using the app, you're agreeing to these terms.</p>
+      <p><strong>Contact:</strong> <a href="mailto:intersect.studio.app@gmail.com">intersect.studio.app@gmail.com</a> or visit our <a href="../contact/">Contact page</a></p>
+    </section>
+
+    <section class="panel">
+      <h2>Using the app</h2>
+      <p>You can use Intersect Studio on devices you own or control, for personal or business purposes. This license follows these terms and Apple's App Store rules.</p>
+    </section>
+
+    <section class="panel">
+      <h2>Purchases and subscriptions</h2>
+
+      <h3>What's available</h3>
+      <p>We offer monthly and yearly subscriptions, plus a lifetime purchase option. All unlock the same Pro features.</p>
+
+      <h3>Free trial</h3>
+      <p>Subscriptions come with a two-week free trial (where available). One trial per Apple ID per subscription type, following Apple's rules.</p>
+
+      <h3>Billing and renewals</h3>
+      <p>Apple charges your account when you confirm a purchase. Subscriptions renew automatically unless you cancel at least 24 hours before the current period ends. Manage or cancel anytime in <strong>iOS Settings › Apple ID › Subscriptions</strong>.</p>
+
+      <h3>Restoring purchases</h3>
+      <p>Pro features work as long as you have an active subscription or lifetime purchase. You can restore purchases anytime in the app.</p>
+
+      <h3>Refunds</h3>
+      <p>Apple handles all refunds. The app includes a link to request a refund for your latest Pro purchase.</p>
+
+      <h3>Price changes</h3>
+      <p>We might adjust prices for new purchases or renewals. Apple will notify you of changes. Continuing to use the app after a price change means you accept the new price.</p>
+    </section>
+
+    <section class="panel">
+      <h2>What you can't do</h2>
+      <ul>
+        <li>Don't try to break the app or interfere with how it works</li>
+        <li>Don't attempt to bypass purchase verification or hack Pro features</li>
+        <li>Don't reverse engineer the app (unless your local laws explicitly allow it)</li>
+      </ul>
+      <p>You're responsible for your device, backups, and following applicable laws.</p>
+    </section>
+
+    <section class="panel">
+      <h2>Ownership</h2>
+      <p>We own Intersect Studio and all its content. You get to use it, but we keep the intellectual property rights. Some third-party libraries are included under their own licenses.</p>
+    </section>
+
+    <section class="panel">
+      <h2>Privacy</h2>
+      <p>How we handle your data is covered in our <a href="../privacy/">Privacy Policy</a>. The short version: your scenes stay on your device, and we collect minimal analytics.</p>
+    </section>
+
+    <section class="panel">
+      <h2>Third-party services</h2>
+      <p>The app uses Apple's StoreKit for purchases and third-party services for analytics and crash reporting. Those services have their own terms and privacy policies.</p>
+    </section>
+
+    <section class="panel">
+      <h2>Disclaimers</h2>
+      <p>We provide the app as-is. We can't promise it'll work perfectly all the time or meet every specific need you might have. While we work hard to keep things running smoothly, software is complex and issues can happen.</p>
+      <p>To the extent the law allows, we don't make guarantees beyond what's written here.</p>
+    </section>
+
+    <section class="panel">
+      <h2>Liability limits</h2>
+      <p>If something goes wrong, our liability is capped at the greater of (a) what you paid us in the last 12 months, or (b) EUR 50.</p>
+      <p>We're not liable for indirect damages, lost data, or business interruption. That said, nothing here limits our liability for things we can't legally limit—like personal injury from negligence or fraud.</p>
+      
+      <div class="terms-note">
+        <strong>EU/UK consumers:</strong> These terms don't reduce your mandatory consumer rights under local law.
+      </div>
+    </section>
+
+    <section class="panel">
+      <h2>Ending access</h2>
+      <p>We can suspend or stop your access if you seriously violate these terms or if we're required to by law. You can stop using the app anytime. When access ends, your license to use it ends too.</p>
+    </section>
+
+    <section class="panel">
+      <h2>Governing law</h2>
+      <p>These terms are governed by Polish law, and disputes would be handled in Warsaw, Poland—unless your local consumer protection laws require otherwise.</p>
+    </section>
+
+    <section class="panel">
+      <h2>Changes to these terms</h2>
+      <p>We may update these terms occasionally. When we do, we'll post the new version here and update the date at the top. For major changes, we might add a notice in the app.</p>
+    </section>
+
+    <section class="panel">
+      <h2>Questions?</h2>
+      <p>Reach out at <a href="mailto:intersect.studio.app@gmail.com">intersect.studio.app@gmail.com</a> or visit our <a href="../contact/">Contact page</a>.</p>
+    </section>
   </main>
 
   <footer data-site-footer></footer>

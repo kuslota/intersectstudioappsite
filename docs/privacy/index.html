@@ -4,7 +4,7 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Privacy Policy — Intersect Studio</title>
-  <meta name="description" content="Privacy Policy for Intersect Studio (iOS/iPadOS)." />
+  <meta name="description" content="Privacy Policy for Intersect Studio. Clear, honest information about how we handle your data." />
   <link rel="icon" href="../images/icon_light_32.png" sizes="32x32" media="(prefers-color-scheme: light)" />
   <link rel="icon" href="../images/icon_dark_32.png" sizes="32x32" media="(prefers-color-scheme: dark)" />
   <link rel="icon" href="../images/icon_light_512.png" sizes="512x512" media="(prefers-color-scheme: light)" />
@@ -16,99 +16,216 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="../styles/site.css" />
   <style>
-    .legal-page{padding:40px 0 60px;}
-    h1{margin:8px 0 10px}
-    h2{margin:26px 0 8px; font-size:18px}
-    p{margin:0 0 12px; color:var(--text)}
-    main a{color:var(--primary); text-decoration:underline; text-decoration-thickness:1px}
-    main a:hover{color:var(--primary-600)}
+    main.privacy-page {
+      padding: 40px 0 80px;
+    }
+
+    .privacy-page .panel {
+      padding: 32px;
+      margin-bottom: 20px;
+    }
+
+    .privacy-page h2 {
+      font-size: 20px;
+      margin: 0 0 16px;
+    }
+
+    .privacy-page h3 {
+      font-size: 17px;
+      margin: 24px 0 12px;
+      color: var(--text);
+    }
+
+    .privacy-page h3:first-of-type {
+      margin-top: 0;
+    }
+
+    .privacy-page p {
+      margin: 0 0 16px;
+      color: var(--muted);
+      line-height: 1.7;
+    }
+
+    .privacy-page ul,
+    .privacy-page ol {
+      margin: 12px 0;
+      padding-left: 20px;
+      color: var(--muted);
+    }
+
+    .privacy-page li {
+      margin: 8px 0;
+      line-height: 1.7;
+    }
+
+    .privacy-page strong {
+      color: var(--text);
+      font-weight: 600;
+    }
+
+    .privacy-page em {
+      color: var(--muted);
+      font-style: italic;
+    }
+
+    .privacy-page a {
+      color: var(--primary);
+      text-decoration: underline;
+      text-decoration-thickness: 1px;
+    }
+
+    .privacy-page a:hover {
+      color: var(--primary-600);
+    }
+
+    .privacy-highlight {
+      background: linear-gradient(135deg, rgba(110,168,254,0.15), rgba(95,225,188,0.1));
+    }
+
+    .privacy-highlight ul {
+      margin: 0;
+    }
+
+    .privacy-note {
+      background: color-mix(in oklab, var(--primary), transparent 93%);
+      border-left: 3px solid var(--primary);
+      border-radius: 6px;
+      padding: 16px;
+      margin: 16px 0;
+      font-size: 15px;
+      color: var(--muted);
+    }
+
+    @media (max-width: 600px) {
+      .privacy-page .panel {
+        padding: 24px 20px;
+      }
+    }
   </style>
 </head>
 <body>
   <header data-site-header></header>
 
-  <main class="container legal-page">
-    <h1>Privacy Policy</h1>
-    <p class="muted">Effective date: October 20, 2025</p>
+  <main class="container legal-page privacy-page">
+    <div class="page-header">
+      <h1>Privacy Policy</h1>
+      <p class="muted">Last updated: October 20, 2025</p>
+    </div>
 
-    <div class="panel">
-  <p>This Privacy Policy explains how <strong>Bohdan Yatsyniuk</strong> ("Developer", "we", "us") handles information in the Intersect Studio iOS/iPadOS application (the "App"). It is written to be clear and practical and to help you understand what we do - and do not do - with data.</p>
+    <section class="panel privacy-highlight">
+      <h2>The short version</h2>
+      <ul>
+        <li><strong>No accounts, no cloud sync.</strong> Your scenes and settings stay on your device.</li>
+        <li><strong>Photos are private.</strong> We only write exported images to your library - we never read your existing photos.</li>
+        <li><strong>Limited analytics.</strong> We collect basic usage data to improve the app. No advertising IDs or tracking.</li>
+        <li><strong>Apple handles payments.</strong> We never see your payment card or Apple ID details.</li>
+      </ul>
+    </section>
 
-  <h2>1. Who we are</h2>
-  <p>Controller: <strong>Bohdan Yatsyniuk</strong> ("Developer").</p>
-  <p>Contact: <a href="mailto:intersect.studio.app@gmail.com">intersect.studio.app@gmail.com</a> • <a href="../contact/">Contact</a></p>
+    <section class="panel">
+      <h2>Introduction</h2>
+      <p>This Privacy Policy explains how <strong>Bohdan Yatsyniuk</strong> (the "Developer", "we", "us") handles information in the Intersect Studio iOS/iPadOS app (the "App").</p>
+      
+      <p><strong>Contact:</strong> <a href="mailto:intersect.studio.app@gmail.com">intersect.studio.app@gmail.com</a> or visit our <a href="../contact/">Contact page</a></p>
+    </section>
 
-  <h2>2. Scope</h2>
-  <p>This policy covers the App. It does not describe third‑party sites we link to. The marketing site is a simple GitHub Pages site and does not place tracking cookies.</p>
+    <section class="panel">
+      <h2>What this policy covers</h2>
+      <p>This policy applies to the Intersect Studio app. It doesn't cover third-party websites we link to. Our marketing website is a simple static site that doesn't use tracking cookies.</p>
+    </section>
 
-  <h2>3. The short version</h2>
-  <ul>
-    <li>No accounts and no cloud sync. Your scenes, settings, and saved poses stay on your device unless you back them up via iCloud device backup.</li>
-    <li>We write images to your Photos library only when you choose to export; we do not read your existing Photos.</li>
-    <li>We use limited analytics to improve performance and reliability. We do not use advertising identifiers or tracking.</li>
-    <li>Purchases are processed by Apple; we do not receive your payment card or Apple ID information.</li>
-  </ul>
+    <section class="panel">
+      <h2>What data we collect</h2>
 
-  <h2>4. Data we process</h2>
-  <p><strong>On‑device data (not sent to us):</strong> Settings and saved poses are stored locally on your device in the app’s storage. We do not operate a content server and do not receive your scenes or images.</p>
+      <h3>Data that stays on your device</h3>
+      <p>Your scenes, saved poses, and settings are stored locally on your device. We don't run a cloud service and don't receive your 3D scenes or images. If you use iCloud device backup, that's between you and Apple - we're not involved.</p>
 
-  <p><strong>Photos (with permission):</strong></p>
-  <ul>
-    <li>When you export, the App writes rendered images to your Photos library using the <em>Photos Add‑Only</em> permission. The App does not read or scan your existing library.</li>
-  </ul>
+      <h3>Photos (with your permission)</h3>
+      <p>When you export an image, the app saves it to your Photos library using iOS's "Add Photos Only" permission. This means we can write exported images but cannot read or scan your existing photo library.</p>
 
-  <p><strong>Purchases:</strong></p>
-  <ul>
-    <li>Information about your purchase (e.g., product type, subscription status such as renewal or expiry) and Apple transaction identifiers needed to grant or restore Pro access. We do not receive payment card details.</li>
-  </ul>
+      <h3>Purchase information</h3>
+      <p>We receive basic information about your purchase (product type, subscription status, transaction IDs) to verify Pro access and handle restoration. Apple processes all payments - we never see your payment card or Apple ID details.</p>
 
-  <p><strong>Analytics & diagnostics:</strong></p>
-  <ul>
-    <li>Event data about feature usage (e.g., adding/duplicating forms, toggling settings), device and app metadata (device model, OS/app version, language/region), anonymized crash data.</li>
-    <li>No advertising IDs, no contact information, no precise location, and no linkage to a user account.</li>
-  </ul>
+      <h3>Analytics and crash reports</h3>
+      <p>We collect anonymous usage data to understand how people use the app and fix crashes:</p>
+      <ul>
+        <li>Feature usage (like adding shapes, changing settings)</li>
+        <li>Device info (model, iOS version, language/region)</li>
+        <li>App version and crash reports</li>
+      </ul>
+      <p><strong>What we don't collect:</strong> Advertising IDs, precise location, contact information, or any data linked to a user account (since there are no accounts).</p>
+    </section>
 
-  <h2>5. Why we process data (purposes & legal bases)</h2>
-  <ul>
-    <li><strong>Provide the App and Pro entitlements</strong> (export to Photos, verify purchases, restore access). <em>Legal basis:</em> performance of a contract (GDPR Art. 6(1)(b)).</li>
-    <li><strong>Improve performance, stability, and UX</strong> via analytics and crash diagnostics. <em>Legal basis:</em> our legitimate interests (GDPR Art. 6(1)(f)).</li>
-    <li><strong>Security, fraud prevention, and compliance</strong> (e.g., preventing abuse of refunds/trials). <em>Legal basis:</em> legitimate interests and/or legal obligation.</li>
-  </ul>
-  <p class="muted">You may request deletion of server‑side analytics (see Your rights below).</p>
+    <section class="panel">
+      <h2>Why we use this data</h2>
 
-  <h2>6. Sharing & processors</h2>
-  <ul>
-    <li><strong>Apple Inc.</strong> Processes purchases and subscription lifecycle. We receive no payment card or Apple ID details.</li>
-    <li><strong>Analytics and diagnostics service providers.</strong> Provide aggregated usage measurement and crash reporting to improve performance and reliability.</li>
-  </ul>
-  <p>We do not sell or share your personal information for cross‑context behavioral advertising (CPRA). We do not disclose data to other third parties except as required by law.</p>
+      <h3>To improve the app</h3>
+      <p>Analytics and crash data help us understand what's working and what needs fixing. We have a legitimate interest in making the app better, and we keep this data collection minimal and anonymous.</p>
 
-  <h2>7. Retention</h2>
-  <ul>
-    <li><strong>On‑device content</strong> persists until you delete it or uninstall the App.</li>
-    <li><strong>Analytics data</strong> is retained for up to <strong>14 months</strong>, and <strong>diagnostic data</strong> (including crash reports) for about <strong>90 days</strong>, after which it is automatically deleted by our analytics and diagnostics provider.</li>
-    <li><strong>Purchase records</strong> are retained as long as needed to provide entitlements and comply with accounting/legal requirements.</li>
-  </ul>
+      <h3>Security and fraud prevention</h3>
+      <p>We monitor for unusual patterns (like repeated refund abuse) to keep the app sustainable. This is part of running a legitimate business.</p>
 
-  <h2>8. International transfers</h2>
-  <p>Our service providers may process data on servers outside your country (including the United States). When data is transferred internationally, we rely on appropriate safeguards, such as standard contractual clauses or equivalent mechanisms.</p>
+      <div class="privacy-note">
+        <strong>Your rights:</strong> If you're in the EU/UK or certain other regions, you can request deletion of analytics data we've collected. See "Your rights" below.
+      </div>
+    </section>
 
-  <h2>9. Your rights</h2>
-  <p>If you are in the EEA/UK (and, where applicable, other regions), you may have rights to access, correct, delete, restrict or object to processing, and data portability. You also have the right to lodge a complaint with your local supervisory authority.</p>
-  <p>To make a request, email <a href="mailto:intersect.studio.app@gmail.com">intersect.studio.app@gmail.com</a>. We may ask for basic technical details (app version, device model) to locate records. Where deletion applies to server‑side analytics or diagnostics, we will request deletion from our service provider.</p>
+    <section class="panel">
+      <h2>Who we share data with</h2>
+      <p><strong>Apple Inc.</strong> handles all purchases and subscriptions. They process payments and manage subscription lifecycles.</p>
+      <p><strong>Analytics providers</strong> help us measure app usage and track down crashes. They aggregate the data and help us improve performance.</p>
+      <p>We don't sell your data. We don't share it for advertising. We only share what's necessary to make the app work and improve it.</p>
+    </section>
 
-  <h2>10. Children’s privacy</h2>
-  <p>The App is not directed to children. Do not use the App if you are under 13 (or under 16 in the EEA/UK) without parental consent. We do not knowingly collect data from children.</p>
+    <section class="panel">
+      <h2>How long we keep data</h2>
+      <ul>
+        <li><strong>On-device content:</strong> Stays until you delete it or uninstall the app</li>
+        <li><strong>Analytics data:</strong> Automatically deleted after 14 months</li>
+        <li><strong>Crash reports:</strong> Deleted after about 90 days</li>
+        <li><strong>Purchase records:</strong> Kept as long as needed for Pro access and legal requirements</li>
+      </ul>
+    </section>
 
-  <h2>11. Security</h2>
-  <p>We use platform security features (sandboxing, data protection at rest). No method of storage or transmission is 100% secure, so we cannot guarantee absolute security.</p>
+    <section class="panel">
+      <h2>International data transfers</h2>
+      <p>Our service providers may store data on servers outside your country, including in the United States. When this happens, we ensure appropriate safeguards are in place (like standard contractual clauses for EU data).</p>
+    </section>
 
-  <h2>12. Changes to this policy</h2>
-  <p>We may update this policy from time to time. We will post the updated version here and update the effective date above.</p>
+    <section class="panel">
+      <h2>Your rights</h2>
+      <p>Depending on where you live (especially in the EU/UK), you may have rights to:</p>
+      <ul>
+        <li>Access your data</li>
+        <li>Correct inaccurate information</li>
+        <li>Request deletion</li>
+        <li>Object to certain processing</li>
+        <li>Export your data</li>
+        <li>Complain to a data protection authority</li>
+      </ul>
+      <p>To exercise these rights, email us at <a href="mailto:intersect.studio.app@gmail.com">intersect.studio.app@gmail.com</a>. We may ask for basic details (app version, device model) to locate your records. For analytics deletion, we'll request removal from our service provider.</p>
+    </section>
 
-  <h2>13. Contact</h2>
-  <p>Questions or requests: <a href="mailto:intersect.studio.app@gmail.com">intersect.studio.app@gmail.com</a> • <a href="../contact/">Contact</a></p>
-</div>
+    <section class="panel">
+      <h2>Children's privacy</h2>
+      <p>Intersect Studio is suitable for all ages. We use analytics strictly for app improvement, not advertising or tracking. We don't knowingly collect personal information from children, and our data collection is minimal and anonymous.</p>
+      <p>Parents: if you have questions about how we handle data, please reach out at <a href="mailto:intersect.studio.app@gmail.com">intersect.studio.app@gmail.com</a>.</p>
+    </section>
+
+    <section class="panel">
+      <h2>Security</h2>
+      <p>We use iOS security features like sandboxing and data protection. No system is 100% secure, but we take reasonable precautions to protect your information.</p>
+    </section>
+
+    <section class="panel">
+      <h2>Changes to this policy</h2>
+      <p>We may update this policy occasionally. When we do, we'll post the new version here and update the date at the top. Significant changes will be noted in the app or on our website.</p>
+    </section>
+
+    <section class="panel">
+      <h2>Questions?</h2>
+      <p>If you have questions about this policy or how we handle data, reach out at <a href="mailto:intersect.studio.app@gmail.com">intersect.studio.app@gmail.com</a> or visit our <a href="../contact/">Contact page</a>.</p>
+    </section>
   </main>
 
   <footer data-site-footer></footer>
