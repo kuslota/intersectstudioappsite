@@ -78,17 +78,36 @@
     }
 
     .faq-icon {
+      position: relative;
       flex-shrink: 0;
       width: 20px;
       height: 20px;
       border-radius: 50%;
       background: color-mix(in oklab, var(--primary), transparent 85%);
       color: var(--primary);
-      display: grid;
-      place-items: center;
-      font-size: 14px;
-      font-weight: 700;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0;
       transition: transform 0.2s;
+    }
+
+    .faq-icon::before,
+    .faq-icon::after {
+      content: '';
+      position: absolute;
+      background: currentColor;
+      border-radius: 1px;
+    }
+
+    .faq-icon::before {
+      width: 12px;
+      height: 2px;
+    }
+
+    .faq-icon::after {
+      width: 2px;
+      height: 12px;
     }
 
     .faq-item.open .faq-icon {
