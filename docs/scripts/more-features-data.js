@@ -5,7 +5,7 @@ export const moreFeatures = [
     </svg>`,
     title: 'Six basic shapes',
     description:
-      'Start with planes, cubes, spheres, cylinders, cones, and pyramids. Combine them to create complex scenes.',
+      'Planes, cubes, spheres, cylinders, cones, and pyramids. Combine them to create complex scenes.',
   },
   {
     icon: `<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
@@ -29,9 +29,9 @@ export const moreFeatures = [
     icon: `<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
       <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
     </svg>`,
-    title: 'Privacy-first',
+    title: 'Privacy',
     description:
-      'No accounts, no tracking, no ads. Your scenes stay on your device. Limited analytics for improvement only.',
+      'No accounts, no tracking, no ads. Your scenes stay on your device. Anonymous analytics used to improve the app.',
   },
   {
     icon: `<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
@@ -40,15 +40,15 @@ export const moreFeatures = [
     </svg>`,
     title: 'Undo and redo',
     description:
-      'Full history support for transforms, additions, and deletions. Work confidently knowing you can always go back.',
+      'Full history for transforms, additions, and deletions. Work confidently knowing you can always go back.',
   },
   {
     icon: `<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
       <path d="M12 2L2 7l10 5 10-5-10-5z"/>
       <path d="M2 17l10 5 10-5M2 12l10 5 10-5"/>
     </svg>`,
-    title: 'Unlock Pro features',
+    title: 'Pro features',
     description:
-      'Get unlimited forms per scene, unlimited saved scenes, shadows, and fine-tune intersection thickness with a subscription or lifetime purchase.',
+      'Unlimited forms and saved scenes, shadows, and adjustable intersection thickness. Available as subscription or lifetime purchase.',
   },
 ];

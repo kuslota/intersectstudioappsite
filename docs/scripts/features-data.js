@@ -1,9 +1,9 @@
 export const featureShowcase = [
   {
     badge: 'Core Feature',
-    title: 'Visualize intersections instantly',
+    title: 'Visualize intersections',
     description:
-      'See where your forms meet with crisp intersection lines. Toggle visibility, adjust thickness, and choose whether to show occluded intersections for complete geometric clarity.',
+      'See where forms intersect with precise lines. Toggle visibility, adjust thickness, and control whether occluded intersections are shown.',
     poster: 'images/posters/feature-default.png',
     sources: [
       { src: 'videos/intersections.mp4', type: 'video/mp4' },
@@ -11,9 +11,9 @@ export const featureShowcase = [
   },
   {
     badge: 'Rendering Options',
-    title: 'Toggle outlines and transparency',
+    title: 'Outlines and see-through',
     description:
-      'Show clean outlines around forms for technical drawings. Enable see-through rendering to understand complex overlapping geometry at a glance.',
+      'Show clean form outlines for structure. Enable see-through rendering to reveal internal geometry.',
     poster: 'images/posters/feature-default.png',
     sources: [
       { src: 'videos/visual-modes.mp4', type: 'video/mp4' },
@@ -31,19 +31,19 @@ export const featureShowcase = [
   },
   {
     badge: 'Visual Control',
-    title: 'Master lighting and shadows',
+    title: 'Control lighting and shadows',
     description:
-      'Control light direction with an intuitive sky-dome interface. Adjust intensity from subtle ambient to dramatic highlights, and enable shadows for added depth and realism.',
+      'Adjust light direction with a sky-dome interface. Set intensity and enable shadows for added depth.',
     poster: 'images/posters/feature-default.png',
     sources: [
       { src: 'videos/lighting.mp4', type: 'video/mp4' },
     ],
   },
   {
-    badge: 'Precision Tools',
-    title: 'Transform with confidence',
+    badge: 'Transforms',
+    title: 'Precise transform controls',
     description:
-      'Use intuitive axis scrubbing for precise position, rotation, and scale adjustments. Enable snapping for exact measurements in world or local space.',
+      'Use axis scrubbing for precise position, rotation, and scale adjustments. Enable snapping for exact measurements and switch between world and local space.',
     poster: 'images/posters/feature-default.png',
     sources: [
       { src: 'videos/transforms.mp4', type: 'video/mp4' },
