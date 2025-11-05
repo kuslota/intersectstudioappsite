@@ -41,6 +41,17 @@
       margin: 0 0 24px;
     }
 
+    .faq-category {
+      margin: 16px 0 20px;
+    }
+
+    .faq-category-title {
+      font-family: inherit;
+      font-size: 18px;
+      margin: 0 0 8px;
+      font-weight: 600;
+    }
+
     .faq-list {
       display: flex;
       flex-direction: column;
@@ -198,14 +209,15 @@
     }
 
     .faq-media--video {
-      aspect-ratio: 16 / 10;
+      aspect-ratio: auto;
     }
 
     .faq-media--video video {
       width: 100%;
-      height: 100%;
-      object-fit: cover;
-      background: color-mix(in oklab, var(--panel), transparent 40%);
+      height: auto;
+      display: block;
+      object-fit: contain;
+      background: transparent;
     }
 
     .faq-media figcaption,
@@ -366,95 +378,123 @@
         );
       };
 
-      faqList.innerHTML = faqItems
-        .map(({ question, answer, tip, media, screenshot }) => {
-          const answerHtml = (answer ?? [])
-            .map((part) => `<p>${enhanceText(part)}</p>`)
-            .join('');
-          const tipHtml = tip ? `<div class="tip">${enhanceText(tip)}</div>` : '';
-          const mediaHtml = (() => {
-            const renderImage = (src, { alt, caption, width, height } = {}) => {
-              const normalizedSrc = (() => {
-                if (!src) return '';
-                return ensureRelativeSrc(src);
-              })();
-              if (!normalizedSrc) return '';
-              const altText = alt ?? `${question} screenshot`;
-              const captionHtml = caption ? `<figcaption>${caption}</figcaption>` : '';
-              const widthAttr = width ? ` width="${width}"` : '';
-              const heightAttr = height ? ` height="${height}"` : '';
-              return `<figure class="faq-media faq-media--image">
-                <img src="${normalizedSrc}" alt="${altText}" loading="lazy" decoding="async"${widthAttr}${heightAttr} />
-                ${captionHtml}
-              </figure>`;
-            };
+      const slugify = (str) =>
+        String(str || '')
+          .toLowerCase()
+          .replace(/[^a-z0-9]+/g, '-')
+          .replace(/^-+|-+$/g, '');
 
-            const renderVideo = (src, { caption, poster } = {}) => {
-              const normalizedSrc = (() => {
-                if (!src) return '';
-                return ensureRelativeSrc(src);
-              })();
-              if (!normalizedSrc) return '';
-              const captionHtml = caption ? `<figcaption>${caption}</figcaption>` : '';
-              const posterAttr = poster ? ` poster="${ensureRelativeSrc(poster)}"` : '';
-              return `<figure class="faq-media faq-media--video">
-                <video class="faq-media__player" data-faq-video data-faq-src="${normalizedSrc}" muted loop playsinline preload="none"${posterAttr}></video>
-                ${captionHtml}
-              </figure>`;
-            };
-
-            const resolvedMedia = (() => {
-              if (media && typeof media === 'object') {
-                if (!media.type && media.source) {
-                  const looksLikeVideo = /\.(?:mp4|webm|ogg)$/i.test(media.source);
-                  return { ...media, type: looksLikeVideo ? 'video' : 'image' };
-                }
-                return media;
-              }
-              if (!screenshot) return null;
-              if (typeof screenshot === 'string') {
-                const looksLikePath =
-                  /\.(?:png|jpe?g|webp|gif|svg|mp4|webm|ogg)$/i.test(screenshot) || screenshot.includes('/');
-                if (looksLikePath) {
-                  const looksLikeVideo = /\.(?:mp4|webm|ogg)$/i.test(screenshot);
-                  return { type: looksLikeVideo ? 'video' : 'image', source: screenshot };
-                }
-                return { type: 'placeholder', content: screenshot };
-              }
-              if (typeof screenshot === 'object' && screenshot.src) {
-                return { type: 'image', source: screenshot.src, ...screenshot };
-              }
-              return null;
+      const renderItem = ({ question, answer, tip, media, screenshot }) => {
+        const answerHtml = (answer ?? [])
+          .map((part) => `<p>${enhanceText(part)}</p>`)
+          .join('');
+        const tipHtml = tip ? `<div class="tip">${enhanceText(tip)}</div>` : '';
+        const mediaHtml = (() => {
+          const renderImage = (src, { alt, caption, width, height } = {}) => {
+            const normalizedSrc = (() => {
+              if (!src) return '';
+              return ensureRelativeSrc(src);
             })();
+            if (!normalizedSrc) return '';
+            const altText = alt ?? `${question} screenshot`;
+            const captionHtml = caption ? `<figcaption>${caption}</figcaption>` : '';
+            const widthAttr = width ? ` width="${width}"` : '';
+            const heightAttr = height ? ` height="${height}"` : '';
+            return `<figure class="faq-media faq-media--image">
+              <img src="${normalizedSrc}" alt="${altText}" loading="lazy" decoding="async"${widthAttr}${heightAttr} />
+              ${captionHtml}
+            </figure>`;
+          };
 
-            if (!resolvedMedia) return '';
-            if (resolvedMedia.type === 'image') {
-              return renderImage(resolvedMedia.source, resolvedMedia);
+          const renderVideo = (src, { caption, poster } = {}) => {
+            const normalizedSrc = (() => {
+              if (!src) return '';
+              return ensureRelativeSrc(src);
+            })();
+            if (!normalizedSrc) return '';
+            const captionHtml = caption ? `<figcaption>${caption}</figcaption>` : '';
+            const posterAttr = poster ? ` poster="${ensureRelativeSrc(poster)}"` : '';
+            return `<figure class="faq-media faq-media--video">
+              <video class="faq-media__player" data-faq-video data-faq-src="${normalizedSrc}" muted loop playsinline preload="none"${posterAttr}></video>
+              ${captionHtml}
+            </figure>`;
+          };
+
+          const resolvedMedia = (() => {
+            if (media && typeof media === 'object') {
+              if (!media.type && media.source) {
+                const looksLikeVideo = /\.(?:mp4|webm|ogg)$/i.test(media.source);
+                return { ...media, type: looksLikeVideo ? 'video' : 'image' };
+              }
+              return media;
             }
-            if (resolvedMedia.type === 'video') {
-              return renderVideo(resolvedMedia.source, resolvedMedia);
+            if (!screenshot) return null;
+            if (typeof screenshot === 'string') {
+              const looksLikePath =
+                /\.(?:png|jpe?g|webp|gif|svg|mp4|webm|ogg)$/i.test(screenshot) || screenshot.includes('/');
+              if (looksLikePath) {
+                const looksLikeVideo = /\.(?:mp4|webm|ogg)$/i.test(screenshot);
+                return { type: looksLikeVideo ? 'video' : 'image', source: screenshot };
+              }
+              return { type: 'placeholder', content: screenshot };
             }
-            if (resolvedMedia.type === 'placeholder' && resolvedMedia.content) {
-              return `<div class="screenshot-placeholder">${resolvedMedia.content}</div>`;
+            if (typeof screenshot === 'object' && screenshot.src) {
+              return { type: 'image', source: screenshot.src, ...screenshot };
             }
-            return '';
+            return null;
           })();
-          return `
-          <div class="faq-item">
-            <button class="faq-question" aria-expanded="false">
-              <span>${question}</span>
-              <span class="faq-icon">+</span>
-            </button>
-            <div class="faq-answer">
-              <div class="faq-answer-content">
-                ${answerHtml}
-                ${tipHtml}
-                ${mediaHtml}
-              </div>
+
+          if (!resolvedMedia) return '';
+          if (resolvedMedia.type === 'image') {
+            return renderImage(resolvedMedia.source, resolvedMedia);
+          }
+          if (resolvedMedia.type === 'video') {
+            return renderVideo(resolvedMedia.source, resolvedMedia);
+          }
+          if (resolvedMedia.type === 'placeholder' && resolvedMedia.content) {
+            return `<div class="screenshot-placeholder">${resolvedMedia.content}</div>`;
+          }
+          return '';
+        })();
+        return `
+        <div class="faq-item">
+          <button class="faq-question" aria-expanded="false">
+            <span>${question}</span>
+            <span class="faq-icon">+</span>
+          </button>
+          <div class="faq-answer">
+            <div class="faq-answer-content">
+              ${answerHtml}
+              ${tipHtml}
+              ${mediaHtml}
             </div>
-          </div>`;
-        })
-        .join('');
+          </div>
+        </div>`;
+      };
+
+      faqList.innerHTML = (() => {
+        const groups = [];
+        for (const entry of faqItems) {
+          if (entry && typeof entry === 'object' && 'section' in entry && !entry.question) {
+            groups.push({ title: entry.section, items: [] });
+          } else {
+            if (!groups.length) groups.push({ title: 'GENERAL', items: [] });
+            groups[groups.length - 1].items.push(entry);
+          }
+        }
+        return groups
+          .map(({ title, items }) => {
+            const id = `faq-${slugify(title)}`;
+            return `
+              <section class="faq-category" aria-labelledby="${id}">
+                <h3 id="${id}" class="faq-category-title">${title}</h3>
+                <div class="faq-list">
+                  ${items.map(renderItem).join('')}
+                </div>
+              </section>`;
+          })
+          .join('');
+      })();
 
       const faqElements = faqList.querySelectorAll('.faq-item');
       faqElements.forEach((item) => {
@@ -484,21 +524,37 @@
                 video.dataset.faqSourceAttached = 'true';
               }
 
-              const playVideo = () => {
-                const playPromise = video.play();
-                if (playPromise?.catch) {
-                  playPromise.catch(() => {});
+              const startPlayback = () => {
+                try {
+                  video.currentTime = 0;
+                } catch {
+                  // Ignore if resetting currentTime fails before metadata loads.
                 }
+                const p = video.play();
+                if (p?.catch) p.catch(() => {});
+              };
+
+              // Clean up any prior listeners we may have left around
+              const onLoadedMetadata = () => {
+                startPlayback();
+                video.removeEventListener('loadedmetadata', onLoadedMetadata);
+              };
+              const onLoadedData = () => {
+                startPlayback();
+                video.removeEventListener('loadeddata', onLoadedData);
               };
 
               if (video.readyState >= 2) {
-                playVideo();
+                // Data is available, start immediately
+                startPlayback();
               } else {
-                video.addEventListener('loadeddata', playVideo, { once: true });
-                if (!video.dataset.faqLoaded) {
-                  video.dataset.faqLoaded = 'true';
-                  video.load();
-                }
+                // Always (re)load to kick network on reopen, since preload="none"
+                video.addEventListener('loadedmetadata', onLoadedMetadata);
+                video.addEventListener('loadeddata', onLoadedData);
+                video.load();
+                // Also call play() to leverage the user gesture from the click
+                const p = video.play();
+                if (p?.catch) p.catch(() => {});
               }
             });
           }

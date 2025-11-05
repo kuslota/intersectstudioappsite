@@ -43,7 +43,7 @@ export const featureShowcase = [
     badge: 'Transforms',
     title: 'Precise transform controls',
     description:
-      'Use axis scrubbing for precise position, rotation, and scale adjustments. Enable snapping for exact measurements and switch between world and local space.',
+      'Use axis scrubbing for precise position, rotation, and scale. Enable snapping for exact measurements and switch between world and local space.',
     poster: 'images/posters/feature-default.png',
     sources: [
       { src: 'videos/transforms.mp4', type: 'video/mp4' },
