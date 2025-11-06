@@ -247,7 +247,8 @@
     }
 
     .contact-email {
-      display: inline-flex;
+      display: flex;                 /* block-level flex to take full row */
+      justify-content: center;       /* center the email chip */
       align-items: center;
       gap: 12px;
       padding: 14px 20px;
@@ -257,6 +258,9 @@
       font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
       font-size: 15px;
       margin-bottom: 20px;
+      max-width: 100%;               /* prevent horizontal overflow */
+      overflow: auto;                /* allow horizontal scroll if needed */
+      white-space: nowrap;           /* keep email on one visual line */
     }
 
     .contact-buttons {
