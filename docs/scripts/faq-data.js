@@ -59,7 +59,7 @@ export const faqItems = [
     answer: [
       '<strong>Outlines</strong> show the visible external edges of each form, helping you read overall shape.',
       '<strong>See-through</strong> shows the internal form edges even when they’re hidden behind other forms, letting you understand the hidden structure.',
-      'You can toggle both in the <strong>Settings</strong>[INSERT: images/faq/gearshape.svg | Settings]<strong> → Form</strong> section:<br>• Toggle <strong>Show outlines</strong> on/off<br>• <strong>See-through forms</strong> on/off',
+      'You can toggle both in the <strong>Settings</strong>[INSERT: images/faq/gearshape.svg | Settings]<strong> → Form</strong> section:<br>• Toggle <strong>Show outlines</strong> on/off<br>• <strong>See-through outlines</strong> on/off',
     ],
     tip: 'Use outlines to study surface shape, and see-through to inspect hidden edges.',
     screenshot: {
