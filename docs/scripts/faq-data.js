@@ -114,6 +114,25 @@ export const faqItems = [
     },
   },
 
+  {
+    question: 'What is the pivot?',
+    answer: [
+      'The pivot is the point the camera orbits around when you rotate or pan the view.',
+      'When it’s visible, the pivot is shown as a small crosshair [INSERT: images/faq/scope.svg | Pivot] in the scene. It helps you see the center of rotation.',
+      'You can hide or show it in <strong>Settings</strong>[INSERT: images/faq/gearshape.svg | Settings]<strong> → Display</strong> by toggling <strong>Show pivot point</strong>.',
+    ],
+  },
+
+  {
+    question: 'How do I set or lock the camera pivot?',
+    answer: [
+      'Long-press in the scene to set a custom pivot under your finger.',
+      'Tap the <strong>Pivot Lock</strong> button [INSERT: images/faq/scope.svg | Pivot] to keep the pivot fixed while you orbit or pan. Tap again to unlock.',
+      'To hide the pivot indicator, open <strong>Settings</strong>[INSERT: images/faq/gearshape.svg | Settings]<strong> → Display</strong> and toggle <strong>Show pivot point</strong>.',
+    ],
+    tip: 'Locking the pivot helps when you want to orbit around a specific detail without it drifting.',
+  },
+
   // ──────────────── SCENES, EXPORT, UNDO/REDO ────────────────
 
   { section: 'SCENES, EXPORT, UNDO/REDO' },
