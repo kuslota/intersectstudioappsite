@@ -80,6 +80,15 @@ export const faqItems = [
     },
   },
 
+  {
+    question: 'How do I change a form`s color or opacity?',
+    answer: [
+      'Select a form, then tap the <strong>Appearance</strong> [INSERT: images/faq/paintpalette.svg | Appearance] button next to the transform controls.',
+      'Use the color picker to set a color, and drag the <strong>Opacity</strong> slider to adjust transparency.'
+    ],
+    tip: 'Use <strong>Reset</strong> [INSERT: images/faq/arrow.counterclockwise.svg | Reset] to return to the default white and full opacity.',
+  },
+
   // ──────────────── CAMERA & LIGHTING ────────────────
 
   { section: 'CAMERA & LIGHTING' },
