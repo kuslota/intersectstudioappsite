@@ -81,6 +81,15 @@ export const faqItems = [
   },
 
   {
+    question: 'What is ground grid spacing, and how do I change it?',
+    answer: [
+      'Ground grid spacing sets the size of each grid square on the floor, in meters.',
+      'Smaller values make a denser grid; larger values make it wider.',
+      'Change it in <strong>Settings</strong>[INSERT: images/faq/gearshape.svg | Settings]<strong> → Display</strong> under <strong>Ground Grid Spacing</strong>.'
+    ],
+  },
+
+  {
     question: 'How do I change a form`s color or opacity?',
     answer: [
       'Select a form, then tap the <strong>Appearance</strong> [INSERT: images/faq/paintpalette.svg | Appearance] button next to the transform controls.',
