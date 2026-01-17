@@ -10,6 +10,11 @@ const navLinks = [
     href: (active) => (active === 'home' ? '#home' : basePath),
   },
   {
+    key: 'whats-new',
+    label: "What's New",
+    href: () => `${basePath}whats-new/`,
+  },
+  {
     key: 'support',
     label: 'Support',
     href: () => `${basePath}support/`,
