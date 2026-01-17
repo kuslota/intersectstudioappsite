@@ -1,0 +1,268 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>What's New - Intersect Studio</title>
+  <meta name="description" content="Release highlights and updates for Intersect Studio." />
+  <link rel="icon" href="../images/icon_light_32.png" sizes="32x32" media="(prefers-color-scheme: light)" />
+  <link rel="icon" href="../images/icon_dark_32.png" sizes="32x32" media="(prefers-color-scheme: dark)" />
+  <link rel="icon" href="../images/icon_light_512.png" sizes="512x512" media="(prefers-color-scheme: light)" />
+  <link rel="icon" href="../images/icon_dark_512.png" sizes="512x512" media="(prefers-color-scheme: dark)" />
+  <link rel="apple-touch-icon" href="../images/icon_light_512.png" />
+  <meta name="theme-color" content="#0b0d12" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../styles/site.css" />
+  <style>
+    main.whats-new-page {
+      padding: 40px 0 80px;
+    }
+
+    .whats-new-stack {
+      display: grid;
+      gap: 24px;
+    }
+
+    .release-block {
+      display: grid;
+      gap: 20px;
+    }
+
+    .release-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+
+    .release-title h2 {
+      margin: 0;
+      font-size: 24px;
+    }
+
+    .release-title p {
+      margin: 0;
+      color: var(--muted);
+    }
+
+    .release-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 4px 10px;
+      border-radius: 999px;
+      background: color-mix(in oklab, var(--primary), transparent 82%);
+      color: var(--primary);
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.6px;
+      text-transform: uppercase;
+    }
+
+    .release-badge.secondary {
+      background: color-mix(in oklab, var(--panel), var(--text) 6%);
+      color: var(--muted);
+    }
+
+    .release-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 16px;
+      margin-top: 18px;
+    }
+
+    .release-item {
+      display: grid;
+      grid-template-columns: auto 1fr;
+      gap: 12px;
+      padding: 16px;
+      border-radius: 14px;
+      background: color-mix(in oklab, var(--panel), var(--text) 3%);
+      border: 1px solid var(--border);
+    }
+
+    .icon-badge {
+      width: 36px;
+      height: 36px;
+      border-radius: 12px;
+      display: grid;
+      place-items: center;
+      background: linear-gradient(135deg, rgba(110,168,254,0.3), rgba(95,225,188,0.2));
+      color: var(--text);
+    }
+
+    .icon-badge svg {
+      width: 18px;
+      height: 18px;
+      display: block;
+    }
+
+    .release-item h3 {
+      margin: 0 0 6px;
+      font-size: 16px;
+    }
+
+    .release-item p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 14px;
+      line-height: 1.5;
+    }
+
+    .release-list {
+      margin: 12px 0 0;
+      padding-left: 20px;
+      color: var(--muted);
+    }
+
+    .release-list li {
+      margin: 6px 0;
+    }
+
+    .release-footer {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+      gap: 12px;
+      margin-top: 20px;
+    }
+
+    .release-footer .muted {
+      font-size: 14px;
+    }
+
+    @media (max-width: 720px) {
+      .release-top {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header data-site-header></header>
+
+  <main class="container legal-page whats-new-page">
+    <div class="page-header">
+      <h1>What's New</h1>
+      <p>Release highlights and updates for Intersect Studio.</p>
+    </div>
+
+    <div class="whats-new-stack">
+      <section class="panel release-block">
+      <div class="release-top">
+        <div class="release-title">
+          <span class="release-badge">Latest</span>
+          <h2>Version 1.1</h2>
+          <p>Appearance upgrades with custom pivots, form styling, and adjustable grid spacing.</p>
+        </div>
+      </div>
+
+      <div class="release-grid">
+        <article class="release-item">
+          <div class="icon-badge" aria-hidden="true">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <circle cx="12" cy="12" r="6" />
+              <path d="M12 2v4M12 18v4M2 12h4M18 12h4" />
+            </svg>
+          </div>
+          <div>
+            <h3>Pivot indicator</h3>
+            <p>See the pivot while orbiting, panning, or pinching. Toggle it in Settings.</p>
+          </div>
+        </article>
+
+        <article class="release-item">
+          <div class="icon-badge" aria-hidden="true">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M12 22s-6-5.2-6-11a6 6 0 0 1 12 0c0 5.8-6 11-6 11z" />
+              <circle cx="12" cy="11" r="2.5" />
+            </svg>
+          </div>
+          <div>
+            <h3>Custom pivot</h3>
+            <p>Long-press to set a pivot anywhere, and lock it to keep the camera centered.</p>
+          </div>
+        </article>
+
+        <article class="release-item">
+          <div class="icon-badge" aria-hidden="true">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M12 3a9 9 0 1 0 0 18h1a3 3 0 0 0 0-6h-1a3 3 0 0 1 0-6h1" />
+              <circle cx="7.5" cy="9" r="1" />
+              <circle cx="10.5" cy="6.5" r="1" />
+              <circle cx="14.5" cy="6.5" r="1" />
+              <circle cx="17" cy="9" r="1" />
+            </svg>
+          </div>
+          <div>
+            <h3>Form appearance</h3>
+            <p>Change a form's color and opacity from the palette control.</p>
+          </div>
+        </article>
+
+        <article class="release-item">
+          <div class="icon-badge" aria-hidden="true">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M3 3h8v8H3V3Zm10 0h8v8h-8V3ZM3 13h8v8H3v-8Zm10 0h8v8h-8v-8Z" />
+            </svg>
+          </div>
+          <div>
+            <h3>Ground grid spacing</h3>
+            <p>Adjust grid spacing in Settings to match your preferred scale.</p>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section class="panel release-block">
+      <div class="release-top">
+        <div class="release-title">
+          <span class="release-badge secondary">Initial release</span>
+          <h2>Version 1.0</h2>
+          <p>The foundation for studying 3D form on iPhone and iPad.</p>
+        </div>
+      </div>
+
+      <ul class="release-list">
+        <li>Build scenes from six basic shapes.</li>
+        <li>Visualize intersections and outlines to understand form.</li>
+        <li>Control transforms, lighting, and perspective for crisp reference images.</li>
+      </ul>
+
+      <div class="release-footer">
+        <span class="muted">Need the full version history? Check the App Store listing.</span>
+        <a class="btn secondary" href="https://apps.apple.com/app/intersect-studio/id6753108427">App Store versions</a>
+      </div>
+    </section>
+    </div>
+  </main>
+
+  <footer data-site-footer></footer>
+  <script type="module">
+    import { renderHeader, renderFooter } from '../scripts/layout.js';
+
+    const params = new URLSearchParams(window.location.search);
+    const isBareMode =
+      params.has('bare') ||
+      params.get('mode')?.toLowerCase() === 'bare' ||
+      params.get('view')?.toLowerCase() === 'bare';
+
+    const headerEl = document.querySelector('[data-site-header]');
+    const footerEl = document.querySelector('[data-site-footer]');
+
+    if (isBareMode) {
+      headerEl?.remove();
+      footerEl?.remove();
+      document.body.classList.add('whats-new-bare');
+    } else {
+      renderHeader('whats-new');
+      renderFooter('whats-new');
+    }
+  </script>
+</body>
+</html>

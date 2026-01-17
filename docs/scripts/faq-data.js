@@ -80,6 +80,24 @@ export const faqItems = [
     },
   },
 
+  {
+    question: 'What is ground grid spacing, and how do I change it?',
+    answer: [
+      'Ground grid spacing sets the size of each grid square on the floor, in meters.',
+      'Smaller values make a denser grid; larger values make it wider.',
+      'Change it in <strong>Settings</strong>[INSERT: images/faq/gearshape.svg | Settings]<strong> → Display</strong> under <strong>Ground Grid Spacing</strong>.'
+    ],
+  },
+
+  {
+    question: 'How do I change a form`s color or opacity?',
+    answer: [
+      'Select a form, then tap the <strong>Appearance</strong> [INSERT: images/faq/paintpalette.svg | Appearance] button next to the transform controls.',
+      'Use the color picker to set a color, and drag the <strong>Opacity</strong> slider to adjust transparency.'
+    ],
+    tip: 'Use <strong>Reset</strong> [INSERT: images/faq/arrow.counterclockwise.svg | Reset] to return to the default white and full opacity.',
+  },
+
   // ──────────────── CAMERA & LIGHTING ────────────────
 
   { section: 'CAMERA & LIGHTING' },
@@ -112,6 +130,25 @@ export const faqItems = [
       caption: 'Lighting controls in action.',
       poster: 'images/faq/perspective_poster.jpg'
     },
+  },
+
+  {
+    question: 'What is the pivot?',
+    answer: [
+      'The pivot is the point the camera orbits around when you rotate or pan the view.',
+      'When it’s visible, the pivot is shown as a small crosshair [INSERT: images/faq/scope.svg | Pivot] in the scene. It helps you see the center of rotation.',
+      'You can hide or show it in <strong>Settings</strong>[INSERT: images/faq/gearshape.svg | Settings]<strong> → Display</strong> by toggling <strong>Show pivot point</strong>.',
+    ],
+  },
+
+  {
+    question: 'How do I set or lock the camera pivot?',
+    answer: [
+      'Long-press in the scene to set a custom pivot under your finger.',
+      'Tap the <strong>Pivot Lock</strong> button [INSERT: images/faq/scope.svg | Pivot] to keep the pivot fixed while you orbit or pan. Tap again to unlock.',
+      'To hide the pivot indicator, open <strong>Settings</strong>[INSERT: images/faq/gearshape.svg | Settings]<strong> → Display</strong> and toggle <strong>Show pivot point</strong>.',
+    ],
+    tip: 'Locking the pivot helps when you want to orbit around a specific detail without it drifting.',
   },
 
   // ──────────────── SCENES, EXPORT, UNDO/REDO ────────────────
