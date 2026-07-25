@@ -14,7 +14,7 @@ export const moreFeatures = [
     </svg>`,
     title: 'Save and export',
     description:
-      'Save scenes locally with thumbnails. Export high-quality PNG images directly to your Photos library.',
+      'Save scenes with previews. With Pro, keep them in sync across your devices through iCloud. Export high-quality PNG images directly to Photos.',
   },
   {
     icon: `<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
@@ -31,7 +31,7 @@ export const moreFeatures = [
     </svg>`,
     title: 'Privacy',
     description:
-      'No accounts, no tracking, no ads. Your scenes stay on your device. Anonymous analytics used to improve the app.',
+      'No Intersect Studio account, advertising IDs, or ads. Saved scenes stay local unless Pro iCloud Sync is active. Limited analytics help improve the app.',
   },
   {
     icon: `<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
@@ -49,6 +49,6 @@ export const moreFeatures = [
     </svg>`,
     title: 'Pro features',
     description:
-      'Unlimited forms and saved scenes, shadows, and adjustable intersection thickness. Available as subscription or lifetime purchase.',
+      'Unlimited forms and saved scenes, iCloud Sync, shadows, and adjustable intersection thickness. Available as a subscription or lifetime purchase.',
   },
 ];

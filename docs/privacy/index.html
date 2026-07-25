@@ -109,13 +109,13 @@
   <main class="container legal-page privacy-page">
     <div class="page-header">
       <h1>Privacy Policy</h1>
-      <p class="muted">Last updated: October 20, 2025</p>
+      <p class="muted">Last updated: July 25, 2026</p>
     </div>
 
     <section class="panel privacy-highlight">
       <h2>The short version</h2>
       <ul>
-        <li><strong>No accounts, no cloud sync.</strong> Your scenes and settings stay on your device.</li>
+        <li><strong>No Intersect Studio account.</strong> Your current work and settings stay on your device. With Pro, saved scenes and previews sync through your private iCloud database.</li>
         <li><strong>Photos are private.</strong> We only write exported images to your library - we never read your existing photos.</li>
         <li><strong>Limited analytics.</strong> We collect basic usage data to improve the app. No advertising IDs or tracking.</li>
         <li><strong>Apple handles payments.</strong> We never see your payment card or Apple ID details.</li>
@@ -137,8 +137,11 @@
     <section class="panel">
       <h2>What data we collect</h2>
 
-      <h3>Data that stays on your device</h3>
-      <p>Your scenes, saved poses, and settings are stored locally on your device. We don't run a cloud service and don't receive your 3D scenes or images. If you use iCloud device backup, that's between you and Apple - we're not involved.</p>
+      <h3>Data stored on your device</h3>
+      <p>Your current scene, saved scenes, previews, and settings are stored locally on your device. Without Pro iCloud Sync, saved scenes remain local to that device.</p>
+
+      <h3>iCloud Sync for saved scenes</h3>
+      <p>When Pro iCloud Sync is active, Intersect Studio mirrors saved scenes and their previews to your private Apple CloudKit database. This lets them appear on devices using the same iCloud account. The data uses your iCloud storage quota and isn't visible to us in the CloudKit developer portal. We don't operate a separate account or server for your scenes.</p>
 
       <h3>Photos (with your permission)</h3>
       <p>When you export an image, the app saves it to your Photos library using iOS's "Add Photos Only" permission. This means we can write exported images but cannot read or scan your existing photo library.</p>
@@ -153,7 +156,7 @@
         <li>Device info (model, iOS version, language/region)</li>
         <li>App version and crash reports</li>
       </ul>
-      <p><strong>What we don't collect:</strong> Advertising IDs, precise location, contact information, or any data linked to a user account (since there are no accounts).</p>
+      <p><strong>What we don't collect:</strong> Advertising IDs, precise location, or contact information. We don't create or maintain an Intersect Studio user account.</p>
     </section>
 
     <section class="panel">
@@ -172,7 +175,7 @@
 
     <section class="panel">
       <h2>Who we share data with</h2>
-      <p><strong>Apple Inc.</strong> handles all purchases and subscriptions. They process payments and manage subscription lifecycles.</p>
+      <p><strong>Apple Inc.</strong> handles purchases and subscriptions. When Pro iCloud Sync is active, Apple also stores and transfers saved scenes and previews through iCloud and CloudKit.</p>
       <p><strong>Analytics providers</strong> help us measure app usage and track down crashes. They aggregate the data and help us improve performance.</p>
       <p>We don't sell your data. We don't share it for advertising. We only share what's necessary to make the app work and improve it.</p>
     </section>
@@ -181,6 +184,8 @@
       <h2>How long we keep data</h2>
       <ul>
         <li><strong>On-device content:</strong> Stays until you delete it or uninstall the app</li>
+        <li><strong>iCloud-synced saved scenes:</strong> Stay in your private iCloud database until you delete them in the app and that deletion syncs, or you remove the app's data using Apple's iCloud controls</li>
+        <li><strong>After Pro ends:</strong> Sync stops after the app applies the entitlement change, but existing iCloud data isn't automatically deleted</li>
         <li><strong>Analytics data:</strong> Automatically deleted after 14 months</li>
         <li><strong>Crash reports:</strong> Deleted after about 90 days</li>
         <li><strong>Purchase records:</strong> Kept as long as needed for Pro access and legal requirements</li>
@@ -203,7 +208,8 @@
         <li>Export your data</li>
         <li>Complain to a data protection authority</li>
       </ul>
-      <p>To exercise these rights, email us at <a href="mailto:intersect.studio.app@gmail.com">intersect.studio.app@gmail.com</a>. We may ask for basic details (app version, device model) to locate your records. For analytics deletion, we'll request removal from our service provider.</p>
+      <p>You can view and delete saved scenes from the Saved Scenes screen. You can also manage the app's iCloud data using Apple's iCloud controls. Because private CloudKit records aren't visible to us in the developer portal, we can't directly retrieve or delete those records for you.</p>
+      <p>For help exercising your rights, including questions about exporting your data, email us at <a href="mailto:intersect.studio.app@gmail.com">intersect.studio.app@gmail.com</a>. For analytics deletion, we'll request removal from our service provider.</p>
     </section>
 
     <section class="panel">
