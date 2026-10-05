@@ -207,7 +207,7 @@ export const faqItems = [
     question: "What's included in Intersect Studio Pro?",
     answer: [
       'Pro unlocks:',
-      '• <strong>Unlimited forms</strong> per scene<br>• <strong>Unlimited saved scenes</strong><br>• <strong>Shadows</strong> rendering<br>• <strong>Intersection thickness</strong> control',
+      '• <strong>Unlimited forms</strong> per scene<br>• <strong>Unlimited saved scenes</strong><br>• <strong>iCloud Sync</strong> for saved scenes and previews<br>• <strong>Shadows</strong> rendering<br>• <strong>Intersection thickness</strong> control',
       'Available as monthly or yearly subscription, or lifetime purchase.',
     ],
   },
@@ -242,8 +242,17 @@ export const faqItems = [
   {
     question: 'Where are my scenes stored?',
     answer: [
-      'All scenes are stored locally on your device. Nothing is uploaded.',
-      'If you delete the app, saved scenes are removed. Export images for external backups.',
+      'Saved scenes are stored locally on your device. With Pro, saved scenes and their previews also sync through your private iCloud database so they can appear on devices using the same iCloud account.',
+      'Without Pro iCloud Sync, saved scenes remain local to each device. Your current unsaved scene and app settings don’t sync through this feature.',
+    ],
+    tip: 'While Cloud Sync is active, deleting a saved scene or using Clear All also removes the synced copy after the deletion reaches iCloud.',
+  },
+  {
+    question: "Why aren't my saved scenes syncing?",
+    answer: [
+      'Confirm that Pro is active and that every device uses the same iCloud account with iCloud Drive available.',
+      'Make sure the device has a network connection. If Cloud Sync was just enabled, restart Intersect Studio when prompted.',
+      'Open <strong>Saved Scenes</strong> and tap the cloud icon beside the title to see whether iCloud is checking, syncing, or needs your attention.',
     ],
   },
   {
